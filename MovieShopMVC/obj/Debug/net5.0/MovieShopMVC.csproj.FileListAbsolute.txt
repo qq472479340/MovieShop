@@ -42,3 +42,4 @@ C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\bin\Debug\net5.0\Ap
 C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\bin\Debug\net5.0\Infrastructure.dll
 C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\bin\Debug\net5.0\ApplicationCore.pdb
 C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\bin\Debug\net5.0\Infrastructure.pdb
+C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Movies\Details.cshtml.g.cs

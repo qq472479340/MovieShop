@@ -7,15 +7,16 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Infrastructure.Services;
+using ApplicationCore.ServiceInterfaces;
 
 namespace MovieShopMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private MovieService _movieService;
-        public HomeController()
+        private IMovieService _movieService;
+        public HomeController(IMovieService movieService)
         {
-            _movieService = new MovieService();
+            _movieService = movieService;
         }
 
         public IActionResult Index()
