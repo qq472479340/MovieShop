@@ -19,12 +19,10 @@ namespace MovieShopMVC.Controllers
             _movieService = movieService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var movies = _movieService.GetTopRevenueMovies();
-            ViewBag.PageTitle = "Top Revenue Movie";
-            ViewData["TotalMovies"] = movies.Count();
-            return View(movies);
+            var movieCards = await _movieService.GetTopRevenueMovies();
+            return View(movieCards);
         }
 
         public IActionResult Privacy()
