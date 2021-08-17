@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApplicationCore.ServiceInterfaces;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +9,18 @@ namespace MovieShopMVC.Controllers
 {
     public class MoviesController : Controller
     {
-        public ActionResult Details(int id)
+        private readonly IMovieService _movieService;
+
+        public MoviesController(IMovieService movieService)
+        {
+            _movieService = movieService;
+        }
+
+        public async Task<ActionResult> Details(int id)
         {
             // call the database and get movie details by id
-            return View();
+            var movieDetails = await _movieService.GetMovieDetails(id);
+            return View(movieDetails);
         }
     }
 }
