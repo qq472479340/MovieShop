@@ -157,3 +157,6 @@ C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Ra
 C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Cast\Details.cshtml.g.cs
 C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\GetAllPurchases.cshtml.g.cs
 C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\GetFavorites.cshtml.g.cs
+C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Genres\Details.cshtml.g.cs
+C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Genres\Index.cshtml.g.cs
+C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_NavBarGenre.cshtml.g.cs

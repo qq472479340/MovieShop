@@ -20,7 +20,7 @@
                         <div class="col-6">
                             @foreach (var genre in Model.Genres)
                             {
-                                <a href="#" class="badge badge-secondary">@genre.Name</a>
+                                <a asp-controller="Genres" asp-action="Details" asp-route-id="@genre.Id" class="badge badge-secondary">@genre.Name</a>
                             }
                         </div>
                     </div>

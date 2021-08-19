@@ -1,0 +1,19 @@
+﻿@model List<ApplicationCore.Models.GenreResponseModel>
+
+<div class="row justify-content-center bg-dark" style="color:white;">
+    <div class="col-1">
+        <h1>Genres</h1>
+    </div>
+</div>
+
+<div class="row justify-content-center bg-light">
+    <div class="col-4">
+        <ul class="list-group">
+            @foreach (var genre in Model)
+            {
+                <li class="list-group-item"><a asp-controller="Genres" asp-action="Details" asp-route-id="@genre.Id" class="btn btn-primary btn-block">@genre.Name</a></li>
+            }
+
+        </ul>
+    </div>
+</div>
