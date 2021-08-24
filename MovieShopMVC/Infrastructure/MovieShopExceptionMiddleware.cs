@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Serilog;
+using Serilog.Sinks.File;
+using System.Security.Claims;
 
 namespace MovieShopMVC.Infrastructure
 {
@@ -55,7 +58,28 @@ namespace MovieShopMVC.Infrastructure
             }
 
             var url = httpContext.Request.Path.Value;
-            
+            var controllerName = url.Split("/")[1];
+            var actionName = url.Split("/")[2];
+            var time = DateTime.Now;
+            var stackTrace = ex.StackTrace;
+            var errorMsg = ex.Message;
+            string userId = null;
+            //string type;
+            if (httpContext.User.Identity.IsAuthenticated)
+            {
+                userId = httpContext.User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
+            }
+
+            var log = new LoggerConfiguration().WriteTo.File("ErrorInformation.txt", rollingInterval: RollingInterval.Day).CreateLogger();
+
+            var logMsg = "\n" + "url: " + "\n\t" + url + "\n" + "Controller: " + "\n\t" + controllerName + "\n" + 
+                "Action: " + "\n\t" + actionName + "\n" + "DateTime: " + "\n\t" + time + "\n" +
+                "StackTrace: " + "\n" + stackTrace + "\n" + "ErrorMsg: " + "\n\t" + errorMsg;
+            if(userId != null)
+            {
+                logMsg += "\n" + "userId: " + "\n\t" + userId;
+            }
+            log.Information(logMsg);
 
             httpContext.Response.Redirect("/Home/Error");
             await Task.CompletedTask;

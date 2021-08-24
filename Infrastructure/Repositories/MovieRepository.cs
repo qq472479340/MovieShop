@@ -17,9 +17,23 @@ namespace Infrastructure.Repositories
 
         }
 
+        public async Task<IEnumerable<Movie>> Get30HighestRatedMovies()
+        {
+            return await _dbContext.Reviews.Include(r => r.Movie)
+                .GroupBy(r => new { r.Movie.Id, r.Movie.PosterUrl, r.Movie.Title })
+                .OrderByDescending(o => o.Average(r => r.Rating))
+                .Select(m => new Movie { Id = m.Key.Id, PosterUrl = m.Key.PosterUrl, Title = m.Key.Title })
+                .Take(30).ToListAsync();
+        }
+
         public async Task<IEnumerable<Movie>> Get30HighestRevenueMovies()
         {
             return await _dbContext.Movies.OrderByDescending(m => m.Revenue).Take(30).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Review>> GetAllReviewsByMovieId(int id)
+        {
+            return await _dbContext.Reviews.Where(r => r.MovieId == id).ToListAsync();
         }
 
         public override async Task<Movie> GetByIdAsync(int id)

@@ -160,3 +160,5 @@ C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Ra
 C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Genres\Details.cshtml.g.cs
 C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Genres\Index.cshtml.g.cs
 C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_NavBarGenre.cshtml.g.cs
+C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\bin\Debug\net5.0\Serilog.dll
+C:\Users\n1 f\Desktop\Antra\MovieShop\MovieShop\MovieShopMVC\bin\Debug\net5.0\Serilog.Sinks.File.dll

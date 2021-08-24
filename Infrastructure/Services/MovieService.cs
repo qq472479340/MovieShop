@@ -17,6 +17,28 @@ namespace Infrastructure.Services
             _movieRepository = movieRepository;
         }
 
+        public async Task<List<MovieCardResponseModel>> GetAllMovies()
+        {
+            var movies = await _movieRepository.ListAllAsync();
+            var movieCards = new List<MovieCardResponseModel>();
+            foreach (var movie in movies)
+            {
+                movieCards.Add(new MovieCardResponseModel { Id = movie.Id, PosterUrl = movie.PosterUrl, Title = movie.Title });
+            }
+            return movieCards;
+        }
+
+        public async Task<List<MovieReviewResponseModel>> GetAllReviews(int id)
+        {
+            var reviews = await _movieRepository.GetAllReviewsByMovieId(id);
+            var movieReviewModel = new List<MovieReviewResponseModel>();
+            foreach (var review in reviews)
+            {
+                movieReviewModel.Add(new MovieReviewResponseModel { Rating = review.Rating, ReviewText = review.ReviewText });
+            }
+            return movieReviewModel;
+        }
+
         public async Task<MovieDetailsResponseModel> GetMovieDetails(int id)
         {
             var movie = await _movieRepository.GetByIdAsync(id);
@@ -66,6 +88,17 @@ namespace Infrastructure.Services
 
             return movieDetailsModel;
 
+        }
+
+        public async Task<List<MovieCardResponseModel>> GetTopRatedMovies()
+        {
+            var movies = await _movieRepository.Get30HighestRatedMovies();
+            var movieCards = new List<MovieCardResponseModel>();
+            foreach (var movie in movies)
+            {
+                movieCards.Add(new MovieCardResponseModel { Id = movie.Id, PosterUrl = movie.PosterUrl, Title = movie.Title });
+            }
+            return movieCards;
         }
 
         public async Task<List<MovieCardResponseModel>> GetTopRevenueMovies()
